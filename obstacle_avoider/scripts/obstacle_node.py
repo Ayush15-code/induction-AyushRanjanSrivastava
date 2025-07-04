@@ -26,9 +26,9 @@ class ObstacleAvoider(Node):
         self.twist = Twist()
 
     def scan_callback(self, msg):
-        # Focus on front range: typically 0° ± 10°
+        
         front_ranges = list(msg.ranges[0:10] + msg.ranges[-10:])
-        front_ranges = [r for r in front_ranges if r > 0.0]  # remove invalid readings (0.0)
+        front_ranges = [r for r in front_ranges if r > 0.0]
 
         if not front_ranges:
             self.get_logger().warn("No valid LaserScan readings!")
