@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="five_tags_world">
+
+    <!-- Lighting and ground -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    Initializes ROS 2 bridge
+    <plugin name="gazebo_ros_init" filename="libgazebo_ros_init.so">
+      <ros>
+        <namespace>/</namespace>
+        <argument>--ros-args</argument>
+      </ros>
+    </plugin>
+
+    <!-- Enables ROS 2 entity spawning and services -->
+    <plugin name="gazebo_ros_factory" filename="libgazebo_ros_factory.so">
+      <ros>
+        <namespace>/</namespace>
+        <argument>--ros-args</argument>
+      </ros>
+    </plugin>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Tag 1 (ID 0) -->
+    <include>
+      <uri>model://aruco_visual_marker_0</uri>
+      <name>tag_1</name>
+      <pose>3.0 0.0 0.01 0 0 0</pose>
+    </include>
+
+    <!-- Tag 2 (ID 1) -->
+    <include>
+      <uri>model://aruco_visual_marker_1</uri>
+      <name>tag_2</name>
+      <pose>2.0 -2.0 0.01 0 0 -1.57</pose>
+    </include>
+
+    <!-- Tag 3 (ID 0) -->
+    <include>
+      <uri>model://aruco_visual_marker_0</uri>
+      <name>tag_3</name>
+      <pose>4.0 -1.0 0.01 0 0 0</pose>
+    </include>
+
+    <!-- Tag 4 (ID 1) -->
+    <include>
+      <uri>model://aruco_visual_marker_0</uri>
+      <name>tag_4</name>
+      <pose>1.5 -4.0 0.01 0 0 -1.57</pose>
+    </include>
+
+    <!-- Tag 5 (ID 0) -->
+    <include>
+      <uri>model://aruco_visual_marker_0</uri>
+      <name>tag_5</name>
+      <pose>1.0 -2.0 0.01 0 0 -3.14</pose>
+    </include>
+
+    
+    <!-- TurtleBot3 Waffle -->
+    <include>
+      <uri>model://turtlebot3_waffle</uri>
+      <name>turtlebot3</name>
+      <pose>0.0 0.0 0.01 0 0 0</pose> <!-- (x, y, z, roll, pitch, yaw) -->
+    </include>
+
+  </world>
+</sdf>
